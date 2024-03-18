@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //*실습 화씨온도 -> 섭씨온도 변환기
+//섭씨 : c, 화씨 f
+let f = parseFloat(prompt("변환할 화씨 온도"));
+let c;
+
+c= ((f-32) / 1.8).toFixed(1);
+alert(`화씨 ${f}도는 섭씨${c}도 입니다.`);
+
+//소수점 이하 자리 짜르고 싶을때 -> 자리수 지정 toFixed()
+  </script>
+</body>
+</html>
