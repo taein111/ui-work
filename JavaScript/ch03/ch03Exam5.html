@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  let subject = prompt("신청 과목 선택. 숫자만 입력(1-HTML, 2-CSS, 3-Javascript)");
+ 
+if (subject !== null) {
+  switch(subject) {
+    case "1" : document.write("HTML을 신청했습니다.");
+      break;
+    case "2" : document.write("CSS를 신청했습니다.");
+      break;
+    case "3" : document.write("Javascript를 신청했습니다.");
+      break;
+    default : document.write("잘못 입력했습니다. 다시 입력해 주세요.")
+  }
+}
+</script>
+</body>
+</html>
