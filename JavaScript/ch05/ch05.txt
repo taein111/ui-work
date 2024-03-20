@@ -1,0 +1,109 @@
+ch05 . DOM의 기초
+--<문서 객체 모델 DOM>
+ - 자바스크립트를 이용하여 웹 문서에 접근하고 제어할 수 있도록 객체를 사용해 웹 문서를 체계적으로 정리
+ - 웹 문서를 구조화한 DOM트리와 이벤트 등을 정리해놓은 표준
+
+*DOM 트리
+- 웹 문서에 있는 요소들 간의 부모, 자식 관계를 계층 구조로 표시한 것
+- 나무 형태가 되기 때문에 "DOM 트리"라고 함
+- 노드(NODE) : DOM 트리에서 가지가 갈라져 나간 항목
+- 루트 노드 :  DOM 트리의 시작 부분
+- DOM은 문서의 요소 뿐만 아니라 각 요소의 내용과 속성도 자식으로 나타냄
+
+
+
+*웹 요소에 접근하기
+- 웹 문서에 원하는 요소를 찾아가는 것 -> Access"접근한다" 
+- querySelector(선택자), querySelectorAll(선택자)
+- 선택자 : id이름 앞에는 해시 기호(#), class이름 앞에는 마침표(.), 태그는 기호없이 태그명 사용
+- 반환값  
+	- querySelector()메서드는 한 개의 값만 반환
+	- querySelectorAll() 메서드는 반환 값이 여러 개일 때 모두 반환 - > 노드 리스트로 저장됨.
+
+-document.querySelector()
+-document.getElement()
+
+
+
+*웹 요소 내용 가져오기 및 수정하기
+- 접근한 요소의 텍스트 내용을 가져오거나 지정 할 때에는 innerText, innerHTML, textContent 프로퍼티 사용
+- innerText : 순수 텍스트를 가져오거나, 해당 요소에 텍스트 저장
+- innerHTML: 태그와 함께 텍스트를 가져오거나, 해당 요소에 태그와 함께 텍스트 지정
+- textContent : 텍스트를 가져오되, 화면에 보이는대로가 아니라 소스에 잇는대로 가져옴
+ 
+요소:innerText 
+요소:innerHTML
+요소:textContent
+
+요소:innerText ="내용"
+요소:innerHTML  = "내용"
+요소:textContent = "내용"
+
+
+--< 자바스크립트로 스타일 수정하기>
+
+*css 속성에 접근하기
+
+- 자바스크립트를 이용하면 스타일 속성의 값을 가져오거나 원하는 값으로 수정할 수 있다.
+ -> 웹문서에 다양한 효과를 만들 수 있다
+- 요소.style.속성명
+
+(예) 제목 부분을 클릭했을 때 제목의 글자색과 글자 배경색 바꾸기
+const title = document.querySelector("#title"); 
+title.onclick = () => {
+  title.style.backgroundColor = "yellow";   
+  title.style.color = "blue"; 
+} 
+
+
+*classList 프로퍼티
+- 두 개 이상의 class 스타일이 적용되었을 경우 class 스타일 정보를 담아두는 프로퍼티.
+- classList를 사용해서 적용 중인 class 스타일을 제거할 수 있고 새로운 class 스타일을 추가할 수 있다.
+
+<div id="desc">
+  <p class="user clicked">이름 : 도레미</p> 
+  <p class="user">주소 : somewhere</p>
+  <p class="user">연락처 : 1234-5678</p> 
+</div> 
+
+*클래스 스타일 추가하기 및 삭제하기
+- 새로운 클래스 스타일을 추가하거나(클래스 스타일이 만들어져 있을때)
+ 기존에 적용중인 클래스 스타일을 제거할 수 있다
+
+요소.classList.add(클래스명)
+요소.classList.remove(클래스명)
+
+h1 {
+  font-size:2rem; 
+  margin-bottom:20px ;
+}
+.clicked {
+  background-color:yellow;
+}
+
+
+const title = document.querySelector("#title");
+
+title.onclick = () => {
+  title.classList.add("clicked");
+}
+
+*contains() -특정 클래스 스타일 있는지
+- 원래 상태로 돌아가고 싶을때, 추가했던 클래스 스타일을 제거하면 원래대로 돌아간다.
+그러기 위해서는 특정 클래스 스타일이 잇는지 체크할 수 있어야 한다.
+- 요소.classList.contains(클래스명)
+
+const title = document.querySelector("#title");
+
+title.onclick = () => {
+  if(!title.classList.contains("clicked")){
+    title.classList.add("clicked");
+  } else {
+    title.classList.remove("clicked");
+  }
+}
+
+
+
+
+

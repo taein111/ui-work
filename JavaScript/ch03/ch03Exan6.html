@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //forEach문 : 배열의 크기가 정해져 있지 않을 경우에 사용
+    const students = ["Park", "Kim", "Lee", "Kang"];
+ 
+students.forEach(function(student) {
+  document.write(`${student}. `)
+});
+
+const gitBook = {
+  title : "깃&깃허브 입문",
+  pubDate : "2019-12-06",
+  pages : 272,
+  finished : true
+}
+
+for(key in gitBook) {
+  document.write(`${key} : ${gitBook[key]}<br>`);
+}
+
+  </script>
+</body>
+</html>

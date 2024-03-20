@@ -1,0 +1,77 @@
+--<자바스크립트 객체>
+
+: 객체는 중괄호 { } 로 생성 , 쉼표(,)로 연결해서 입력
+=> 키: 값
+
+*객체 선언
+const product ={
+제품명 : '건조 망고',
+유형 : '당절임',
+성분 : '망고, 설탕' ,
+원산지 : '필리핀'
+}
+
+*객체의 요소에 접근
+product['제품명']  -> 건조망고
+product['유형'] -> 당절임
+product.성분 -> 망고, 설탕
+product.원산지 -> 필리핀
+
+*객체 요소 수정하기 및 추가하기
+product.원산지 = 한국
+delete product.원산지
+
+
+*객체 중첩하기
+-객체 안에 또 다른 객체를 넣을 수 있다. 
+let student = {
+  name : "Doremi",
+  score : {
+    history : 85,
+    science : 94,
+    average : function () {
+      return (this.history + this.science) / 2
+    }
+  }
+}
+
+student.score.history // 85
+student.score.average() // 89.5
+
+*객체 메서드 정의하기
+- 메서드 : 객체의 프로퍼티중 객체의 동작을 지정하는 함수
+- 일반적인 함수를 선언하는 것과 비슷하게 선언
+
+메서드명 : function(){...}
+
+let book3 = {
+title : '점프 투 파이썬',
+pages: 360,
+buy : function() {
+console.log("이 책을 구입했습니다");
+}
+}
+
+const pet = {
+name  : '구름'
+eat(food){
+alert(this.name+'은/는'+food+'을/를먹습니다');
+ }
+}
+pet.eat('밥')
+
+*메서드와 this
+this : 메서드에서 객체 안에 있는 프로퍼티 값을 이용할 때, 현재 객체를  가리키는 예약어
+
+let book4 ={
+  title : "Javascript",
+  pages : 500,
+  author : "고경희",
+  done : false,
+  finish : function(){
+    this.done ===flase? console.log("읽는중") : console.log("완독");
+}
+}
+book4.finish();
+
+
