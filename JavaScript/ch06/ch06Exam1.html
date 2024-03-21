@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>클릭!</button>
+  <script>
+    //웹 요소에 직접 함수 연결하기
+  function changeBackground() {
+    document.body.style.backgroundColor = "blue";
+  }
+  const button = document.querySelector("button");
+  //button.onclick = changeBackground;
+    //addEventListner() 사용하기
+  button.addEventListener("click", changeBackground);
+
+//   // 익명함수 사용
+// button.addEventListener("click", function() { 
+//   document.body.style.backgroundColor = "green";
+// // )}; 
+
+// const button = document.querySelector("button");
+
+// // 화살표 함수 사용
+// button.addEventListener("click", () => { 
+//   document.body.style.backgroundColor = "green"; 
+// )}; 
+
+</script>
+
+</body>
+</html>

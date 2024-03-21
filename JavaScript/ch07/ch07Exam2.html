@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>노드 리스트 살펴보기</h1>
+  <p>HTML</p>
+  <p>CSS</p>
+  <p>Javascript</p>
+  <button id="add">과목추가</button>
+  <div id="result"> </div>
+  <script>
+    let newP = document.createElement("p");    // 새로운 p 요소 생성
+  let textNode = document.createTextNode("Python");    // title의 텍스트 부분만 가져와 텍스트 노드로 생성
+  let add = document.querySelector("#add");
+  let result=document.querySelector("#result");
+  add.addEventListener("click", function(){ 
+  newP.appendChild(textNode);      // 텍스트 노드를 새로운 p 요소에 추가
+  newP.style.fontSize = "0.8em";
+  newP.style.color = "blue";
+  result.appendChild(newP);
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드 리스트</title>
+</head>
+<body>
+  <h1>Web Programming</h1>
+  <ul id="items">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Javascript</li>
+  </ul>
+  <button id="add">표지 보기</button>
+  <div id="result"> </div>
+  <script>
+    let addBtn = document.querySelector("#add");
+    let result = document.querySelector("#result");
+    
+    addBtn.addEventListener("click", () =>{
+      let newImg = document.createElement("img"); //이미지 요소 노드 만들기
+      let srcNode = document.createAttribute("src") //이미지 속성 노드 만들기
+      srcNode.value= "images/wall.jpg"; // 속성 노드에 값 부여하기(이미지 넣기)
+      newImg.setAttributeNode(srcNode); // 요소노드에 속성노드 붙이기
+      document.body.appendChild(newImg); //바디에 요소노드 이어주기
+      
+    },{once : true}); //한번만 삽입하기
+  </script>
+</body>
+</html>

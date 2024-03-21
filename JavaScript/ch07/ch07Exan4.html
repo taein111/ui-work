@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드 리스트</title>
+</head>
+<body>
+  <h1>노드 리스트 살펴보기</h1>
+  <p>HTML</p>
+  <p>CSS</p>
+  <p>Javascript</p>
+  <button id="add">과목추가</button>
+  <div id="result"> </div>
+  <script>
+    let tsNode =  document.createElement("p");//요소 노드 만들기
+    let tsTextNode = document.createTextNode("TypeScript"); // 텍스트 속성 노드 만들기
+    tsNode.appendChild(tsTextNode); // 요소에 속성 노드 붙이기
+    let addBtn = document.querySelector("#add"); //버튼 객체
+    let basisNode = document.querySelectorAll("p")[1];//기준이 되는 노드 정하기
+    addBtn.addEventListener("click", () =>{
+    document.body.insertBefore(tsNode, basisNode);
+    }) //이벤트(기존 노드 앞에 추가하기)
+
+
+  </script>
+</body>
+</html>
