@@ -1,0 +1,121 @@
+@font-face {
+  src: url(../font/Jalnan2/Jalnan2TTF.ttf);
+  font-family:"tae";
+}
+#event{}
+*{
+  font-family: "tae";
+}
+
+html,body{
+	height: 100%;
+}
+.wrap {
+    display: flex;
+    flex-direction: column;
+		height: 100%;
+}
+.header {
+  border: 1px #000000;
+  height: 65px;
+  /* background-color: #00c73c; */
+  text-align: center;
+  line-height: 70px;
+  font-size: 40px;
+
+}
+.event_box {
+    height: 80px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    color:rgb(0, 0, 0);
+    letter-spacing: 10px;
+    border-top:1px #000000;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;;
+    font-size: 20px;
+}
+.image_box{
+  height: 725px;
+  width: 70%;
+    background-color: #d4d9dd;
+    text-align: center;
+    line-height: 70px;
+    color:rgb(0, 0, 0);
+    float:left;
+    cursor: pointer ;
+}
+.side_image1{
+    display: flex;
+    flex: none;
+    width: 30%;
+    height:241px;
+    background-color: #aaadaf;
+    float:right;
+    border: 1px black;
+    cursor: pointer ;
+}
+.side_image2{
+  display: flex;
+  flex: none;
+  width: 30%;
+  height:241px;
+  background-color: #aaadaf;
+  float:right;
+  border: 1px black;
+  cursor: pointer ;
+}
+.side_image3{
+  display: flex;
+  flex: none;
+  width: 30%;
+  height:241px;
+  background-color: #aaadaf;
+  float:right;
+  border: 1px black;
+  cursor: pointer ;
+}
+.side_image1:hover{
+  filter:brightness(0.7);
+}
+.side_image2:hover{
+  filter:brightness(0.7);
+}
+.side_image3:hover{
+  filter:brightness(0.7);
+}
+.ingEvent{
+  height: 70px;
+  width: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 75px;
+    color:rgb(0, 0, 0);
+    float:left;
+    font-size: 35px;
+    letter-spacing: 3px;
+
+}
+.ingEvent:hover{
+  filter:brightness(0.5);
+  cursor: pointer ;
+}
+.exit_event{
+  height: 70px;
+  width: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 75px;
+    color:rgb(0, 0, 0);
+    float:left;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+.exit_event:hover{
+  filter:brightness(0.5);
+  cursor: pointer ;
+}

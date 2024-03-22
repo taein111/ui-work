@@ -1,0 +1,88 @@
+ch07.  DOM 활용하기
+
+* DOM 트리와 노드리스트
+- DOM에는 단순히 태그에 해당하는 요소 노드뿐만아니라 여러 종류의 노드가 있다.
+- DOM 트리에서 가지가 갈라져 나가는 부분을 노드라고 하고,
+- DOM 트리의 시작 부분, 즉 HTML 노드를 나무의 뿌리에 해당하는 루트 노드라고 한다.
+
+*노드를 구성하는 원칙
+- 모든 HTML 태그는 요소 노드가 된다.
+- HTML 태그에서 사용하는 텍스트 내용은 자식 노드인 텍스트 노드가 된다.
+- HTML 태그에 있는 속성은 모두 자식노드인 속성 노드가 된다.
+- 주석들은 주석 노드가 된다.
+
+* 노드 리스트
+- querySelectorAll()메서드를 사용하면 여러 개의 노드를 한꺼번에 가져올 수 있다.
+- 가져온 여러 개의 노드 정보를 저장한 것을 노드 리스트라고 한다.
+- 노드 리스트는 배열과 비슷하게 생겼고 배열처럼 사용할 수 있다.(배열은 아님)
+
+
+<h1>노드 리스트 살펴보기</h1>
+<p>HTML</p>
+<p>CSS</p>
+<p>Javscript</p>
+
+documemt.querySelectorAll("p")  
+documemt.querySelectorAll("p")[1]
+
+
+
+*웹문서에 새로운 노드 추가하기
+- 웹 문서에서 처음에는 화면에 보이지 않다가 이벤트가 발생했을 때 화면에 특정한 내용이 표시되도록 하려면
+   -> 특정 이벤트가 발생했을 때 DOM트리에 새로운 노드를 추가한다.
+
+*텍스트 내용이 있는 노드 추가하기
+1) 텍스트 노드를 만들기
+2) 요소 노드 만들기
+3) 텍스트 노드를 요소 노드에 연결
+4) 원하는 영역에 추가
+
+
+*속성 노드 만들기 - createAttribute()
+1) createAttribute() 메서드를 사용해서 속성 노드를 만들고,
+2) 속성의 값은 value 프로퍼티를 사용해서 지정한다.
+let newImg = document.createElement("img"); //
+let srcNode = document.createAttribute("src") //
+srcNode.value= "images/wall.jpg"; // 속성 노드에 값 부여하기(이미지 넣기)
+newImg.setAttributeNode(srcNode); // 요소노드에 속성노드 붙이기
+
+
+*자식 노드 연결하기 - appendChild()
+img요소에 속성 노드가 연결되었지만, img 요소는 아직 dom에 연결되지 않은 상태
+appendChild()를  사용해서 img 요소를 원하는 위치에 연결한다.
+
+document.body.appendChild(newImg); //바디에 요소노드 이어주기
+
+
+*기존 노드 앞에 추가하기 - insertBefore()
+-지금까지 살펴본 방법은 새로 만든 요소를 부모 노드의 맨 마지막에 자식 노드로 추가하는 것
+-insertBefore()를 사용하면 특정 노드 앞에 새 요소를 추가할 수 있다.
+
+*insertBefore(새 노드, 기준 노드)
+
+let tsNode = document.createElement("p") 
+let tsTextNode = document.createTextNode("Typescript") 
+tsNode.appendChild(tsTextNode) 
+
+let basisNode = document.querySelectorAll("p")[0]
+document.body.insertBefore(tsNode, basisNode)
+=> 기준이 되는 노드를 첫번째 p 노드로 지정, insertBefore()를 사용해 첫번째 p 노드 앞에 새 노드를 추가한다
+
+
+
+
+*노드 삭제하기 - remove()
+요소.remove()
+const heading = document.querySelector("h1")
+heading.remove();
+
+*자식 노드 삭제 -removeChild()
+-이 메서드를 사용하려면 우선 부모 노드를 차아야하고, 그 후에 자식노드를 삭제해야 한다.
+부모 노드 찾는 프로퍼티 :노드명.parentNode
+자식 노드를 제거하는 removeChild() 메서드 
+=> 부모노드.removeChild();
+
+
+
+
+
