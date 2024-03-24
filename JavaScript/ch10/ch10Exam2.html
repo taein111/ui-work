@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="userInput">
+    <label>
+    <input type="email" id="userEmail" placeholder="이메일 주소를 입력하세요." autofocus>
+    </label>
+  <button>실행</button>
+  </div> 
+    <div id="result"></div>
+    
+    <script>
+      // 사용자 메일 주소 입력 부분 변수담기
+      const email = document.querySelector("#userEmail");
+      //버튼 
+      const button = document.querySelector("button");
+      //결과 표시 영역
+      const result = document.querySelector("#result");
+
+      //버튼 눌렀을때 함수 생성
+      button.addEventListener("click", function(){
+        let username, domain;
+        //이메일 입력 칸이 비어있지 않으면
+        if(email.value !==""){
+          //@를 기준으로 앞부분을  username으로 저장
+          username = email.value.split("@")[0];
+          // username을 앞에 3자리만 따와서 저장
+          username = username.substring(0,3);
+          //@를 기준으로 뒷부분을 domain으로 저장
+          domain = email.value.split("@")[1];
+          //result 영역에 3자리만 따온거+...@domain 출력
+          result.innerText=`${username}...@${domain}`
+          // 출력 후 email 영역 비워주기
+          email.value ="";
+        }
+      });
+
+//         if(email.value !== "") {
+//     username = email.value.split("@")[0];
+//     half = username.length / 2;          // username의 길이를 반으로 나눕니다.
+//     username = username.substring(0, half);     
+//     domain = email.value.split("@")[1];
+//     result.innerText = `${username}...@${domain}`;
+//     email.value = "";                               
+//   }
+// });
+
+    </script>
+</body>
+</html>

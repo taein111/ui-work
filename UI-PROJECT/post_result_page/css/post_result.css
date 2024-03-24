@@ -1,0 +1,128 @@
+
+@font-face {
+  src: url(../font/Jalnan2/Jalnan2TTF.ttf);
+  font-family:"tae";
+}
+*{
+  font-family: "tae";
+}
+  .header {
+  border: 1px #000000;
+  height: 65px;
+  /* background-color: #00c73c; */
+  text-align: center;
+  line-height: 70px;
+  font-size: 40px;
+}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100%;
+      flex-direction: column;
+
+    }
+    .post-container {
+      width: 100%;
+      max-width: 800px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 20px rgba(0.5, 0, 0, 0.5);
+      border: 1px solid black;
+    }
+    .post-content-container{
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid black;
+      border-style: dotted;
+    }
+    .post-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+      border-bottom: 1px solid black;
+    }
+    .post-meta {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+      
+      
+    }
+    .post-content {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 1px solid black;
+      
+    }
+    .comment-container{
+      margin-top: 30px;
+      width: 100%;
+    }
+    .comment-input{
+      display:flex;
+      margin-bottom: 10px;
+    }
+    .comment-input input[type="text"]{
+      flex-grow: 1;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .comment-input input[type="submit"] {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color:#fff;
+      border : none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .comment-list{
+      list-style-type: none;
+      padding:0;
+      float: right;
+    }
+    .comment-name{
+      float: left;
+      
+    }
+    .commetn-item{
+      margin-bottom: 10px;
+    }
+    input[type="button"]{
+      float: right;
+      background-color: #007bff;
+      color:#fff;
+      cursor: pointer;
+      margin-left: 5px;
+      border : none;
+      border-radius: 5px;
+    }
+
+.delButton {  
+  margin-left: 20px;
+  font-size:0.8em;
+  float: right;
+  background-color: #007bff;
+  color:#fff;
+  border : none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.comment-list{
+  float: left;
+}
+  

@@ -1,0 +1,234 @@
+ch09. 자바 스크립트 객체
+
+--< 객체 > 
+- 프로그래밍에서 '객체' 는 데이터를 저장하고 처리하는 기본 단위 이다.
+- 자바스크립트에서 객체는 관련된 정보와 동작을 함께 모아 놓은 것이다.
+
+- 내장 객체  : 프로그래밍을 할 때 자주  사용하는 요소들을 자바스크립트에서 미리 정의해 놓은 객체
+   => 문서 객체 모델(DOM) : 웹 문서 자체도 객체이고 , 웹 문서에 포함된 이미지와 링크, 텍스트 필드 등은 모두
+			이미지 객체, 링크 객체, 폼 객체 처럼 각각 별도의 객체이다.
+   => 브라우저 객체 모델 : 웹 브라우저에서 사용하는 정보도 객체로 지정되어 있다.
+
+- 사용자 정의 객체 : 필요할 때마다 사용자가 만들어 사용하는 객체.
+
+- 사용자 정의 객체 만들기
+ :객체는 여러 개의 프로퍼티로 구성되어있다. 프로퍼티는 키 : 값 형태를 가지고 있다.
+
+ * 키와 값
+ - 객체를 만들 때는 객체 이름 다음에 중괄호{} 를 사용, 
+   중괄호 사이에 '키 : 값' 형식으로 필요한  프로퍼티를 나열
+   객체의 키는 문자열이나 숫자, 심벌만 사용 할 수 있다.
+   각 프로퍼티는 쉼표(,)를 넣어 구분한다.
+
+-객체 선언하기
+(예) 책 정보를 담고 있는 book1
+let book1 = { 
+title : "웹 표준의 정석",
+pages : 555, 
+}
+book1   // {title : "웹 표준의 정석",  pages: 555}
+
+
+-객체 프로퍼티에 접근하기
+:점 표기법, 괄호 표기법 사용
+: 괄호 표기법을 사용할 경우 프로퍼티 키의 문자열에는 큰 따옴표를 붙여야한다
+
+book1.title  //점 표기법
+book1["title"] // 괄호 표기법
+
+
+-객체 프로퍼티 수정 및 추가
+: 객체명.키 = 값
+book1.pages = 50
+book1 //{title = "웹 표준의 정석 ", pages : 50}
+
+
+-사용자 정의 객체 만들기
+ *빈 객체 만들기
+let book2 = {}        또는 let book2 = new Object()
+
+ *프로퍼티 추가하기
+book2.title = "javascript"
+book2.pages = 500
+
+ * 프로퍼티 삭제하기
+delete book2.pages
+delete book2.title
+
+
+ * 객체 중첩하기
+ - 객체 안에 또 다른 객체를 넣을 수 있다 . - 둘 이상의 객체 중첩
+
+let student = { 
+name : "doremi",
+score : {
+    history : 85,
+    science : 90,
+    average : function() {
+      return (this.history+this.science /2)
+     }
+   }
+}
+
+student.score.history // 85
+student.score.average() //87.5
+
+
+
+*객체 메서드 정의하기
+- 메서드 : 객체의 프로퍼티 중 객체의 동작을 지정하는 함수
+- 메서드를 선언하는 방법은 일반적인 함수를 선언하는 것과 비슷하다
+
+메서드 명 : function(){
+...
+}
+
+let book3 = {
+title:"점프 투 파이썬',
+pages : 500,
+buy : function(){
+console.log("이 책을 구입했습니다.");
+ }
+}
+
+
+*메서드와 this
+- this : 메서드에서 객체 안에 있는 프로퍼티 값을 사용할 때, 현재의 객체를 가리키는 예약어
+
+let boo4 = {
+title : "javascript" ,
+pages : 500,
+author : "고경희",
+done : false , 
+finish : function(){
+this.done === false ? console.log("읽는 중") : console.long("완독");
+ }
+}
+book4.finish() // "읽는 중"
+
+
+*객체 복사하기
+
+-원시 유형 자료 복사 
+: 값을 복사한다 , 복사한 자료의 값을 변경 -> 원래 자료의 값은 그대로
+ex -  number1 =100
+       number2 = number1
+       number2 = 200
+       number1 = 100
+
+-객체 복사
+: '주소'를 복사한다..  복사한 자료의 값 변경 -> 원래 자료의 값도 바뀐다
+bag1 ={color : "blue"}
+bag1 = bag2
+bag2.color = "red"
+bag2.color : "red"
+
+
+
+--<생성자 함수>
+- 객체마다 반복되는 프로퍼티와 메서드가 있다면, 객체 틀을 미리 정의해놓고 필요할 때마다 그 틀을 사용해서
+   객체를 만들 수 있다.
+- 객체의 틀을 만들 때 사용하는 함수를 '생성자 함수'라고 한다.
+- 생성자 함수를 사용해서 찍어내는 객체를 '인스턴스' 또는 '인스턴스 객체' 라고 부른다.
+
+
+*생성자 함수를 사용해 객체 정의하기
+- 생성자 함수는 일반적인 함수와 같은 형식
+- 함수 이름의 첫 글자는 대문자로 사용한다.
+- 함수 내부에서 this를 사용한다.
+
+function 대문자함수명(매개변수) {
+this.키1:값1
+this.키2:값2
+this.키3:값3
+...
+this.메서드1 : function(){..},
+this.메서드2 : function(){...}
+}
+
+ex)
+function Book(title, pages, done=false) {
+this.title : title;
+this.pages : pages;
+this.done : done;
+this.finish : function(){
+let str = "";
+this.done ===false? str = "읽는 중" : str = "완독";
+return str;
+ }
+}
+
+let book1 = new Book("웹 표준의 정석", 648, false);
+let book2 = new Book("점프 투 파이썬", 360, true);
+console.log(`${book1.title} - ${book1.pages}쪽 - ${book1.finish()}`);
+console.log('${book2.title} - ${book2.pages}쪽 - ${book2.finish()}`);
+
+
+
+
+*클래스 사용해 객체 정의하기
+-> 생성자 함수를 좀 더 표현하기 쉽게 바꾼 것
+
+class 클래스명 {
+constructor(){
+프로퍼티1,
+프로퍼티2,
+}
+메서드1()  {...}
+매서드2(0 {...}
+
+}
+
+ex)
+class Book2{
+constructor(title, pages, done){
+this.title = title;
+this.pages = pages;
+this.done = done;
+}
+finish(){
+let str = "";
+this.done === false? str ="읽는 중" : str = "완독";
+return str;
+ }
+}
+let book1 = new Book("웹 표준의 정석", 648, false);
+let book2 = new Book("점프 투 파이썬", 360, true);
+console.log(`${book1.title} - ${book1.pages}쪽 - ${book1.finish()}`);
+console.log('${book2.title} - ${book2.pages}쪽 - ${book2.finish()}`);
+
+
+--<객체의 키와 값에 접근하기>
+* for ... in 사용하기
+: for in 문을 사용하면 객체의 키만 가져올 수 있다.
+for(변수 in 객체) {...}
+
+let bag = {
+type : "backpack",
+color : "blue",
+size : 15
+}
+for(key in bag){
+ console.log(`${key} : ${bag[key]}`);   //type ; backpack , color : blue , size : 15
+
+*keys(), values(), entries(0 메서드 사용하기
+let book1 = {
+  title : "웹 표준의 정석",
+  pages : 648, 
+  buy : function () {
+    console.log("이 책을 구입했습니다.");
+  }
+
+let keys = Object.keys(book1); // 키만 가져오기
+console.log(keys)
+let values = Objcet.values(book1); // 값만 가져오기
+console.log(values)
+let entries = Objcet.entries(book1); // 키와 값 함께 가져오기
+console.log(entries);
+
+
+
+ 
+
+
+

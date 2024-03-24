@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 구글 지도 API 스크립트 로드 -->
+<script src="https://maps.googleapis.com/maps/api/js?key=6d7e2f086ffa97eb8f4b35fa8cc12439&libraries=places"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/post.css">
+
+</head>
+<body>
+  <div id="wrap" class="wrap">
+    <header class="header">GA X GA</header>
+    <form action="/submit_post" method="POST" id="postForm">
+      <div id="review_box"><h1>[후기 게시글 작성]</h1></div>
+      <div class="cate">
+      <label>지역 카테고리 선택 :</label>
+        <select>
+          <option>서울</option>
+          <option>경기</option>
+          <option>강원</option>
+          <option>충북</option>
+          <option>충남</option>
+          <option>경북</option>
+          <option>경남</option>
+        </select>
+      </div>
+      <div class="cate">
+      <label>테마 카테고리 선택</label>
+        <select>
+          <option>산</option>
+          <option>축제</option>
+          <option>카페</option>
+          <option>맛집</option>
+          <option>바다</option>
+        </select>
+      </div>
+      <label for="image">이미지 업로드:</label>
+      <input type="file" id="image" name="image" accept="image/*">
+      <input type="submit" value="이미지 업로드">
+      <div>
+      <label for="title">제목:</label><br>
+      <input type="text" id="title" name="title"><br>
+      <label for="title">작성자:</label><br>
+      <input type="text" id="writer" name="title"><br>
+      <label for="content">내용:</label><br>
+      <textarea id="content" name="content" rows="20" cols="50"></textarea><br>
+      <label for="address">여행지 주소 :</label>
+      <button type="button" onclick="findAddress()">
+      주소찾기</button> <br><br>
+      <input type="text" id="address" name="address"><br><br>
+      <input type="submit" value="작성하기">
+      <input type="submit" value="취소">
+
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 상세보기</title>
+  <link rel="stylesheet" type="text/css" href="css/post_result.css">
+
+</head>
+<body>
+  <header class="header">GA X GA</header>
+  <div class="post-container">
+  <div class="post-content-container">
+    <div class="post-title">이젠 컴퓨터  학원에 다녀왔어요</div>
+    <div class="post-meta">
+      <span>작성자: 홍길동</span>
+      <input type="button" value="수정">
+      <input type="button" value="삭제">
+
+    </div>
+    <div class="post-meta">
+      <span>작성일: 2024-03-24</span>
+    </div>
+    <img src="pic-2.jpg" alt="게시글 이미지" class="post-image">
+    <div class="post-content">
+      <p>공부하기 딱좋았어요</p>
+    </div>
+    <button class="like-btn" ud="likebtn">좋아요
+    </button>
+    <span id="likeCount">0</span> 명이 이 게시글을 좋아합니다.
+  </div>
+    <div class="comment-container">
+      <h3>댓글</h3>
+      <form class="comment-input">
+        <input style ="width: 30%;" id="client" type ="text" maxlength="10" placeholder="닉네임">
+        <input style ="width: 70%;" id="comment" type ="text" placeholder="댓글을 입력하세요">
+        <input id="comment-save" type="submit" value="댓글 작성">
+      </form>
+      
+    <ul class="comment-list">
+    </ul>
+    </div>
+  </div>
+  <script src="js/post_result.js"></script>
+
+</body>
+</html>
